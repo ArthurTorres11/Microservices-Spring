@@ -1,0 +1,43 @@
+# Sistema de Gerenciamento de Escolas e Estudantes
+
+Este projeto é um sistema simples para gerenciar informações de escolas e estudantes. Ao iniciar a aplicação, algumas informações de exemplo estão disponíveis apenas para visualização inicial. Para adicionar novas escolas e estudantes, utilize os comandos `curl` listados abaixo.
+
+## Instruções para Rodar o Projeto
+
+### Pré-requisitos
+
+- ** Java 21 **
+- ** IntelliJ IDEA **
+
+A aplicação estará disponível na porta 8080. Certifique-se de que nenhuma outra aplicação está utilizando essa porta.
+
+A aplicação inicia com algumas informações básicas que são carregadas apenas para visualização. Para visualizar estas informações:
+
+** Escolas cadastradas: http://localhost:8080/school **
+** Estudantes cadastrados: http://localhost:8080/student **
+Esses dados iniciais não são persistidos. Para adicionar novas informações de forma efetiva, siga as instruções de POST abaixo.
+
+Adicionar uma Escola:
+curl -X POST http://localhost:8080/school -H "Content-Type: application/json" -d "{\"name\": \"Nome da Escola\", \"address\":\"Endereço da Escola\"}"
+
+Exemplo: 
+curl -X POST http://localhost:8080/school -H "Content-Type: application/json" -d "{\"name\": \"FSA\", \"address\":\"Rua Exemplo, 123\"}"
+
+
+Adicionar um estudante: 
+curl -X POST http://localhost:8080/student -H "Content-Type: application/json" -d "{\"name\":\"Nome do Estudante\", \"grade\":\"Nota\"}"
+
+Exemplo:
+curl -X POST http://localhost:8080/student -H "Content-Type: application/json" -d "{\"name\":\"Estudante Exemplo\", \"grade\":\"A\"}"
+
+
+Mensagens Padrão dos Serviços
+Para confirmar que os serviços estão ativos, você pode acessar:
+
+School Service: http://localhost:8080/school/message
+Student Service: http://localhost:8080/student/message
+
+Observações
+Se precisar rodar a aplicação em outra porta, ajuste o arquivo application.properties conforme necessário.
+
+
